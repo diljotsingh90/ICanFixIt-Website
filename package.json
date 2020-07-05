@@ -1,0 +1,28 @@
+{
+  "name": "icanfixit-website",
+  "version": "1.0.0",
+  "description": "A website where you can consult technicians for assistance.",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diljotsingh90/ICanFixIt-Website.git"
+  },
+  "author": "DIljot SIngh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diljotsingh90/ICanFixIt-Website/issues"
+  },
+  "homepage": "https://github.com/diljotsingh90/ICanFixIt-Website#readme"
+}
