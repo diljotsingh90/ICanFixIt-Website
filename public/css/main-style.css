@@ -1,0 +1,318 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+*{
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.nav {
+  height: 7vh;
+  min-height: 56px;
+}
+/* Nav bar styling  */
+.nav-bar.big {
+  display: flex;
+  flex-direction: row-reverse;
+  list-style-type: none;
+  padding: 10px 0;
+  margin: 0;
+  background: transparent;
+}
+.nav-bar-item a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+}
+.nav-bar-item a:hover {
+  color: rgb(119, 119, 119);
+}
+.nav-bar-item button:hover {
+  color: rgb(119, 119, 119);
+}
+.nav-bar-item.active {
+  border-radius: 10px;
+  padding: 2px 1px;
+  color: rgb(119, 119, 119);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+  .nav-bar-item a {
+    padding: 5px 10px;
+  }
+}
+/* Nav bar styling ends */
+
+/* Home page Styling */
+.content {
+  margin: 20vh 10vw;
+
+  color: white;
+  text-align: center;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px 50px;
+}
+.get-started-btn {
+  text-decoration: none;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: black;
+  font-weight: 600;
+}
+/* Home page Styling ends */
+
+/* Issue home page styling */
+.outer-container {
+  display: flex;
+  height: 93vh;
+}
+.issue-list {
+  background-color: lemonchiffon;
+  flex: 30vw;
+  overflow: auto;
+  height: 100%;
+}
+
+.delete-post{
+  padding: 8px 16px;
+  width: max-content;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+  background-color: lightgoldenrodyellow;
+  border-radius: 50%;
+}
+.issue-btn:hover .delete-post{
+  display: inline-block;
+}
+.issue-messages {
+  background-color: lavender;
+  flex: 70vw;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 0;
+}
+.chat-field {
+  
+  padding: 10px 10px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+}
+.chat {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: scroll;
+  position: relative;
+}
+
+.message-bubble {
+  padding: 10px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 10px;
+  text-align: left;
+  background-color: rgba(65, 105, 225, 0.2);
+  max-width: fit-content;
+  position: relative;
+  cursor: pointer;
+}
+.delete-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+.message-bubble.mine:hover .delete-btn{
+  display: inline-block;
+}
+.message-bubble.mine {
+  background-color: white;
+  margin-left: auto;
+}
+.sender{
+  margin-right: 15px;
+}
+.message-bubble.mine p {
+  text-align: right;
+}
+.message-bubble .sender {
+  font-weight: 600;
+  color: royalblue;
+}
+.actual-message {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+#message-text-input {
+  border-radius: 5vh;
+  border: none;
+  flex: 90%;
+  padding: 1vh 2vh;
+  box-shadow: 0px 0px 10px rgba(65, 105, 225, 0.3);
+}
+#submit-message-btn {
+  border-radius: 50%;
+  border: none;
+  flex: 5%;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 1vh;
+  background-color: royalblue;
+  box-shadow: 0px 0px 20px rgba(65, 105, 225, 0.3);
+}
+#submit-message-btn:focus {
+  outline: none;
+}
+#message-text-input {
+  outline: none;
+}
+.no-issue {
+  text-align: center;
+}
+.issue-btn {
+  font-family: "Montserrat", "sansserif";
+  appearance: none !important;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  padding: 0 20px;
+  position: relative;
+  background-color: white;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+a.raise-button {
+  padding: 10px 10px;
+  background-color: red;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.issue-btn:hover {
+  background-color: rgba(220, 220, 220, 0.5);
+}
+.issue-btn:focus {
+  outline: none;
+  background-color: rgba(200, 200, 200, 0.5);
+}
+p.host {
+  flex: 1;
+  color: green;
+  text-align: right;
+}
+p.host.none {
+  flex: 1;
+  color: red;
+  text-align: right;
+}
+p.status {
+  flex: 1;
+  text-align: left;
+}
+.row {
+  display: flex;
+ justify-content: center;
+ align-items: center;
+ 
+}
+.leading h3 {
+  color: royalblue;
+}
+button.toggle-chat {
+  background: transparent;
+  color: white;
+  outline: none;
+  display: none;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+button.nav-bar-button {
+  background: transparent;
+  color: white;
+  outline: none;
+  padding: 5px 5px;
+  border: none;
+  cursor: pointer;
+}
+button.toggle-chat.active {
+  border-radius: 10px;
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 500px) {
+  button.toggle-chat {
+    display: inline-block;
+  }
+
+  *.hide {
+    flex: 0;
+    display: none;
+  }
+  *.show {
+    flex: 100vw;
+  }
+}
+/* New Issue page styling */
+.outer-container-newIssues {
+  display: flex;
+  max-width: 60vw;
+  margin: auto;
+  overflow: visible;
+}
+.outer-container-newIssues .issue-list {
+  background-color: white;
+}
+.tick {
+  background-color: red;
+  color: white;
+  border: none;
+  height: max-content;
+  padding: 10px 10px;
+  margin: auto 0;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.tick:focus {
+  outline: none;
+}
+.tick i {
+  transform: translate(-2%, 5%);
+}
+.cross i {
+  transform: translate(-2%, 7%);
+}
+.cross {
+  background-color: green;
+  color: white;
+  border: none;
+  height: max-content;
+  padding: 10px 10px;
+  margin: auto 0;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.cross:focus {
+  outline: none;
+}

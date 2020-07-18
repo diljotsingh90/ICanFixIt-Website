@@ -1,0 +1,40 @@
+<%- include("../include/head") %>
+<link rel="stylesheet" href="/css/signUpstyle.css" />
+
+  </head>
+
+  <body>
+    
+    <%- include("../include/nav") %>
+  
+   <div class="outer-container-newIssues">
+      <div class="issue-list">  
+     <% if (issues.length==0) { %>
+      <p class="no-issue">No new issues.</p>
+     <% } else { issues.forEach((issue)=>{%>
+       
+           <div class="issue-btn">
+           <div class="leading">
+            <h3><%= issue.title %> </h3>
+         </div>
+         <div class="trailing">
+            <!-- <input type="hidden" class="issueId" value=""> -->
+            <div class="row">
+            <p class="status"><%= issue.status %></p>
+            <form action="/host/acceptIssue" method="POST">
+               <input type="hidden" name="issueId" value="<%= issue._id %>">
+            <button class="tick" type="submit">
+               <i class="fa fa-plus fa-1x"></i>
+            </button>
+         </form>
+         </div>
+         </div>
+      </div>
+       
+     <%}) } %>
+   </div>
+  
+  
+</div>
+    <%- include("../include/end") %> 
+  

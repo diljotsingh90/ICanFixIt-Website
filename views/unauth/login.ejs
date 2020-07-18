@@ -1,0 +1,69 @@
+<%- include("../include/head") %>
+<link rel="stylesheet" href="/css/signUpstyle.css" />
+<meta name="google-signin-client_id" content="401985229551-dqpv5920kik69iefs4scrdnns5p0kh5a.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>window.onbeforeunload = function(e){
+      gapi.auth2.getAuthInstance().signOut();
+    };</script>
+  </head>
+
+  <body>
+    <%- include("../include/nav") %>
+  
+    <div class="container">
+      <form id="form" class="form" action="./logIn" method="POST">
+        <h2>Log In</h2>
+        <div  <% if(error!==""){%>class="form-control error"  <% } else { %> class="form-control" <% } %>>
+          <label for="email">Email</label>
+          <input type="email" id="email" 
+          name="email" placeholder="Enter email" />
+         <small> <% if(error!==""){%><%= error %><% } else {%>Error message<% } %></small>
+            
+          </div>
+      <div  <% if(errorPassword!==""){%>class="form-control error"  <% } else { %> class="form-control" <% } %>>
+        <label for="password">Password</label>
+        <input type="password" id="password" 
+        name="password" placeholder="Enter password" />
+       <small> <% if(errorPassword!==""){%><%= errorPassword %><% } else {%>Error message<% } %></small>
+          
+        </div>
+        <button type="submit">Submit</button>
+        <br>
+        <h4>Or</h4>
+        <br>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      </form>
+    </div>
+    <script>
+      
+      async function onSignIn (googleUser) {
+      const idToken =googleUser.getAuthResponse().id_token;
+    
+      var profile = googleUser.getBasicProfile();
+      
+      const name = profile.getName();
+      
+     const email = profile.getEmail();
+      
+       try{
+         let result = await fetch("/login",{
+        method:"POST",
+        headers:{
+          'Content-Type': 'application/json',
+        },
+        body:JSON.stringify({
+          "googleIdToken":idToken,
+          "username":name,
+          "email":email,
+        })
+      });
+       result= await result.json();
+      window.location.replace(`/${result.type}/issues`);
+    }
+    catch(err){
+      console.log(err);
+    }
+    }
+    </script>
+    
+    <%- include("../include/end") %>

@@ -1,0 +1,29 @@
+<%- include("../include/head") %>
+<link rel="stylesheet" href="/css/signUpstyle.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="css/error404style.css" /> -->
+  </head>
+
+  <body>
+    
+    <%- include("../include/nav") %>
+  
+    <div class="container">
+      <form id="form" class="form" action="/user/newissue" method="POST">
+        <h2>What is the problem about?</h2>
+        <div class="form-control">
+          <label for="title">Subject (few words only)</label>
+          <input type="text" name="title" id="title" placeholder="Enter Subject (It will not be changed)" />
+          <small>Error message</small>
+        </div>
+       
+        <div class="form-control">
+          <label for="message">Describe the whole problem</label>
+          <textarea name="message" id="message" cols="30" placeholder="Tell us more..." rows="10"></textarea>
+          
+          <small>.</small>
+        </div>
+        <button id="submit-btn">Submit</button>
+      </form>
+    </div>
+    <script src="/js/newissuescript.js"></script>
+    <%- include("../include/end") %>

@@ -1,0 +1,58 @@
+<div class="nav">
+  <ul class="nav-bar big">
+    <% if (typeof user!=="undefined") { %>
+      
+        <li title="Signout" class="nav-bar-item">
+          <a href="/<%= user.type %>/signout"><i class="fa fa-sign-out-alt fa-2x">
+          </i></a>
+       
+      </li>
+     <% if(user.type!=="host"){%>
+      <li title="Fix My Issue" class="nav-bar-item <% if (pageTitle==="New Issue") { %>active<% } %>">
+        <a href="/<%= user.type %>/newissue"><i class="fa fa-plus-square fa-2x ">
+        </i></a>
+    </li>
+  <% } else { %>
+    <% if (pageTitle==="Dashboard") { %>
+      
+    <li title="Raise this issue again" class="nav-bar-item">
+      <button class="nav-bar-button" onclick="raiseAgain()"><i class="fa fa-retweet fa-2x ">
+      </i></button>
+  </li>
+  <% } %>
+  <li title="New Issues" class="nav-bar-item <% if (pageTitle==="New Issues") { %>active<% } %>">
+    <a href="/host/newissues"><i class="fa fa-bullhorn fa-2x ">
+    </i></a>
+</li>
+    <% } %>
+        <li title="Dashboard" class="nav-bar-item <% if (pageTitle==="Dashboard") { %>active<% } %>">
+          <a href="/<%= user.type %>/issues"><i class="fa fa-home fa-2x ">
+          </i></a>
+       
+      </li>
+      <% if (pageTitle==="Dashboard") { %>
+       
+      
+      <li title="Show/Hide Issues" class="nav-bar-item ">
+        <button class="toggle-chat active">
+        <i class="fa fa-bars fa-2x ">
+        </i></button></li>
+        <% } %>
+    
+    <% } else { %>
+    <li  title="Signup" class="nav-bar-item <% if (pageTitle==="Signup") { %>active<% } %>">
+      <a href="/signup"><i class="fa fa-calendar-plus fa-2x">
+      </i></a>
+    </li>
+    <li title="Login" class="nav-bar-item <% if (pageTitle==="Login") { %>active<% } %>">
+      <a href="/login"><i class="fa fa-sign-in-alt fa-2x">
+        
+      </i></a>
+    </li>
+    <li title="Home" class="nav-bar-item <% if (pageTitle==="ICanFixit") { %>active<% } %>">
+      <a href="/"><i class="fa fa-home fa-2x ">
+      </i></a>
+    </li>
+    <% } %>
+  </ul>
+</div>

@@ -1,0 +1,56 @@
+<%- include("../include/head") %>
+<link rel="stylesheet" href="/css/signUpstyle.css" />
+
+  </head>
+
+  <body>
+    
+    <%- include("../include/nav") %>
+  
+   <div class="outer-container">
+      <div class="issue-list show">  
+     <% if (issues.length==0) { %>
+      <p class="no-issue">You have no active issues.</p>
+     <% } else { issues.forEach((issue)=>{%>
+       
+           <button class="issue-btn" onclick="getChat(`<%= user._id %>`,`<%= user.type %>`,`<%= issue._id%>`)">
+           <div class="leading">
+            <h3><%= issue.title %> </h3>
+         </div>
+         <div class="trailing">
+            <!-- <input type="hidden" class="issueId" value=""> -->
+            <div class="row">
+            <p class="status"><%= issue.status %></p>
+            <% if (user.type==="user") { %>
+               <p class="host <% if (issue.host ==="not yet assigned"){ %>none<% } %>">Host: <%= issue.host %></p>
+               <% } %>
+            </div>
+         </div>
+         <% if (user.type==="user") { %>
+            <div class="delete-post" onclick="deleteIssue('<%= issue._id %>')">
+               <i class="fa fa-trash fa-1x "></i>
+            </div>
+         <% } %>
+      </button>
+       
+     <%}) } %>
+   </div>
+   <div class="issue-messages hide">
+      
+         <div class="chat">
+            <p>No Issue Selected</p>
+         </div>
+         <form class="chat-field">
+            
+            <textarea type="text" name="message" id="message-text-input"></textarea>
+            <button id="submit-message-btn">
+               <input type="hidden" id="user-type" value="<%=user.type  %>">
+               <i class="fa fa-paper-plane fa-1x"></i>
+            </button>
+         </form>
+      </div>
+  
+</div>
+   <script src="/js/userHome.js"></script>
+    <%- include("../include/end") %> 
+  
